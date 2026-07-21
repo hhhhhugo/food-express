@@ -1,8 +1,14 @@
 import os;
-
+restaurantes = ['Irmaos pizzaria', 'Mc Ronalds']
 def exibir_nome_do_prgrama():
     print ('🆂🅰🅱🅾🆁 🅴🆇🅿🆁🅴🆂🆂 \n');
-
+def listar_restaurante():
+    os.system('cls')
+    print('Listas de restaurantes')
+    for restaurante in restaurantes:
+        print('- '+ f'{restaurante}')
+    input('\nDigite uma tecla para voltar ao menu principal')
+    main()
 def exibir_opcoes ():
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
@@ -15,14 +21,22 @@ def opcao_invalida():
     print('opcao invalida!\n')
     input('Digite uma tecla para voltar ao menu principal')
     main()
+def cadastrar_novo_restaurante():
+    os.system('cls')
+    print('Cadastro de novos restaurantes\n')
+    nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar:\n')
+    restaurantes.append(nome_do_restaurante)
+    print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
+    input('Digite uma tecla para voltar ao menu principal')
+    main()
 def escolher_opcao ():
     try:
         opcao_escolhida = int(input('Escolha uma opção:'))
         match opcao_escolhida:
             case 1:
-                print ('Cadastrar restaurante')
+                cadastrar_novo_restaurante()
             case 2:
-                print ('Listar restaurante')
+                listar_restaurante()
             case 3:
                 print('Ativar restaurante')  
             case 4:
